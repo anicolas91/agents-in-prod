@@ -2,7 +2,7 @@ import type { Scorer } from 'autoevals'
 
 // create a fcn to score things based on whether the correct tool was requested
 export const ToolCallMatch: Scorer<any, {}> = async ({
-    input,    //x
+    //input,    //x
     output,   //y_pred
     expected, //y_actual
 }) => {
