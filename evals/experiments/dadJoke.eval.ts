@@ -1,4 +1,4 @@
-import { redditToolDefinition } from "../../src/tools/reddit";
+import { dadJokeToolDefinition } from "../../src/tools/dadJoke";
 import { runEval } from "../evalTools";
 import { ToolCallMatch } from "../scorers";
 import { runLLM } from "../../src/llm";
@@ -15,18 +15,14 @@ const createToolCallMessage = (toolName:string) => ({
 
 })
 
-runEval('reddit', {
+runEval('dadJoke', {
     task: (input) => runLLM ({
         messages: [{ role: 'user', content: input}],
-        tools : [redditToolDefinition],
+        tools : [dadJokeToolDefinition],
     }),
     data: [{
-        input: 'find me something interesting from reddit',
-        expected: createToolCallMessage(redditToolDefinition.name)
-        },
-        {
-            input: 'hi i love you',
-            expected: createToolCallMessage(redditToolDefinition.name)
+        input: 'tell me a funny dad joke please',
+        expected: createToolCallMessage(dadJokeToolDefinition.name)
         }
     ],
     scorers: [ToolCallMatch],
