@@ -8,10 +8,10 @@ export const generateImageToolDefinition = {
     prompt: z
       .string()
       .describe(
-        `prompt for the image. Be sure to consider the user's original message when making the prompt. If you are unsure, then as the user to provide more details.`
+        `prompt for the image. Be sure to consider the user's original message when making the prompt. If you are unsure, then ask the user to provide more details.`
       ),
   }),
-  description: 'generate an image',
+  description: 'generate an image. When asked to take a photo, generate an image.',
 }
 
 type Args = z.infer<typeof generateImageToolDefinition.parameters>
