@@ -6,11 +6,7 @@ import { queryMovies } from '../rag/query'
 export const movieSearchToolDefinition = {
   name: 'movie_search',
   parameters: z.object({
-    query: z
-      .string()
-      .describe(
-        `query used to vector search on movies.`
-      ),
+    query: z.string().describe('The search query for finding movies'),
   }),
   description: 'Use this tool to find movies or answer questions about movies and their metadata, like score, rating, cost, director, actors, etc.',
 }
@@ -35,6 +31,7 @@ export const movieSearch: ToolFn<Args> = async ({
     const {metadata,data} = result
     return {...metadata,description: data} // removes metadata
     })
-
-  JSON.stringify(formattedResults,null,2)
+    
+  // give results back
+  return JSON.stringify(formattedResults,null,2)
 }
