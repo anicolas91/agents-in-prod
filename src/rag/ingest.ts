@@ -52,3 +52,7 @@ export async function indexMovieData() {
     spinner.succeed('Finished indexing movie data')
   }
   indexMovieData()
+
+
+  /// asdfhaisdolfujhadpfogiafd
+  //asldfiuasdfa
